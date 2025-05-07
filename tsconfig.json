@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",                       // Modern target for async/await, etc.a if( species the output language level )
+      "module": "CommonJS",                     // Proper ESM support in Node.js (specifies the module code generation method )
+      "moduleResolution": "node",           // Required for ESM resolution
+      "outDir": "dist",                         // Output directory
+      "rootDir": "src",                         // Your source directory
+      "sourceMap": true,                        // Enable source maps
+      "esModuleInterop": true,                  // Allow default imports from CJS modules
+      "forceConsistentCasingInFileNames": true, // Avoid casing issues
+      "strict": true,                           // Enable strict type checking
+      "skipLibCheck": true,                     // Skip type checking of declaration files
+      "resolveJsonModule": true,                // Import JSON files
+      "allowSyntheticDefaultImports": true,     // Allow default imports
+      "noEmit": false                           // Emit compiled JS files
+    },
+    "include": ["src/**/*"], // Include all files in src
+    "exclude": ["node_modules", "dist"],
+    "typeRoots": ["node_modules/@types"],
+  }
+  
