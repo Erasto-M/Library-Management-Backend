@@ -41,3 +41,8 @@ The functionality is the same. You're telling your Express app to automatically 
 
 ## Response Time -
 -  Time taken from when the server recieved the request until it send the final response back to the client
+
+## ODM and ORM 
+ODM - Object Document mapper
+ORM - Object relational mapper
+

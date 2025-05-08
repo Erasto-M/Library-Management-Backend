@@ -8,17 +8,19 @@ export interface User extends Document {
     email: string,
     age?: number,
     phone?: string,
+    role?: string,
     isDeleted?: boolean,
     createdAt?: Date,
     updatedAt?: Date
 }
 
 const userSchema = new Schema({
-    firstName: { type: String, required: true, default: '', },
+    firstName: { type: String, required: false, default: '', },
     middleName: { type: String, required: false, default: '', },
     lastName: { type: String, required: false, default: '', },
     email: { type: String, required: true, default: '', },
-    phone: { type: String, required: true, default: '', },
+    phone: { type: String, required: false, default: '', },
+    role: {type: String , required: false , default : 'student'},
     password: { type: String, required: false, default: '', },
     isDeleted: { type: String, required: false, default: false, },
     createdAt: { type: Date, required: false, default: Date.now, },

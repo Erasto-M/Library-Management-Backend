@@ -46,7 +46,7 @@ const loginUser = async ({ user }: {
         }
         const token = jwt.sign(
             {
-                id: userExists._id, email: userExists.email,
+                id: userExists._id, email: userExists.email, role: user.role,
             },
             SECRET as string,
             { expiresIn: '1h' }
@@ -66,7 +66,35 @@ const loginUser = async ({ user }: {
 
 };
 
+const getAllUsers = async ()=>{
+    try{
+        const allUsers= await users.find().select('-__v -isDeleted -password');
+      
+        if(allUsers.length>0){
+            return allUsers;
+        }else {
+            throw new Error("No users Found");
+        }
+    }catch(err){
+        if(err instanceof Error){
+            throw new Error(err.message);
+        } else{
+            throw new Error("An error occurred while fetching users ");
+        }
+    }
+}
+
+// async  function hashPassword(password: string): Promise<string>{
+//     const saltRounds =10;
+//     return await  bcryptjs.hash(password , saltRounds);
+// }
+
+//  async function generateJwt(user: User): Promise<string>{
+
+//     return await  jwt.sign({d: user._id,email: user.email}, SECRET as string , {expiresIn: '4h'});
+// }
 export default {
     createUser,
     loginUser,
+    getAllUsers,
 }
