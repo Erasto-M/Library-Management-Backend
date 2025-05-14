@@ -9,6 +9,7 @@ export interface CustomRequest extends Request {
 
 export interface UserPayload {
     userId: string,
+    email: string,
     role: string,
 }
 

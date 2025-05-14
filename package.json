@@ -17,11 +17,13 @@
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "http": "0.0.1-security",
+    "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "library_management_system_backend": "file:",
     "mongodb": "^6.16.0",
     "mongoose": "^8.14.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemailer": "^7.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
@@ -29,8 +31,10 @@
     "@types/body-parser": "^1.19.5",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/joi": "^17.2.3",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/morgan": "^1.9.9",
+    "@types/nodemailer": "^6.4.17",
     "body-parser": "^2.2.0",
     "dotenv": "^16.5.0",
     "eslint": "^9.26.0",

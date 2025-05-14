@@ -46,3 +46,4 @@ The functionality is the same. You're telling your Express app to automatically 
 ODM - Object Document mapper
 ORM - Object relational mapper
 
+## for validation of user input one can use joi library or even express validator
