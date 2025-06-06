@@ -98,6 +98,7 @@ const loginUser = async ({ user }: {
 
 };
 
+
 const createNewAccessToken = async ({ refreshToken }: { refreshToken: string }) => {
     try {
         if (!refreshToken) {
@@ -121,7 +122,7 @@ const createNewAccessToken = async ({ refreshToken }: { refreshToken: string }) 
 
 const getAllUsers = async () => {
     try {
-        const allUsers = await users.find().select('-__v -isDeleted -password');
+        const allUsers = await users.find({}, {firstName: 1, lastName: 0, role: 0}).select('-__v -isDeleted -password');
 
         if (allUsers.length > 0) {
             return allUsers;
@@ -222,10 +223,11 @@ const resetPasswordAndVerifyOtp = async ({ user }: { user: ResetUser }) => {
     }
 
 }
+
 const getUserById = async ({ id }: { id: string }) => {
     try {
         const userExists = await users.findById(new Types.ObjectId(`${id}`))
-        .select('-__v -password -isDeleted -newPassword')
+            .select('-__v -password -isDeleted -newPassword')
         if (!userExists) {
             throw new Error("User not found");
         }
@@ -238,7 +240,6 @@ const getUserById = async ({ id }: { id: string }) => {
         }
     }
 }
-
 
 export default {
     createUser,
