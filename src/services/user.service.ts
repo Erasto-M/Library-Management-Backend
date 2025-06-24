@@ -52,7 +52,7 @@ const loginUser = async ({ user }: {
         // const requiredFields = ['email','password'];
         // for(const field of requiredFields){
         //     if(!user[field as keyof User]){
-        //         throw new Error(`${field} is required`);
+        //         throw new Error(`${field} is required`);  
         //     }
         // }
         const { error } = loginValidation.validate(user);
