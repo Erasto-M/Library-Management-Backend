@@ -4,7 +4,8 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import connectToDatabase from './config/db';
 import v1Routes from '../src/routes/index';
-import { basicRateLimiter } from './middlewares/rate_limit';    
+import { basicRateLimiter } from './middlewares/rate_limit'; 
+import { redisRateLimiter } from './middlewares/rate_limit';   
 dotenv.config();
 
 const app = express();
@@ -12,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({limit: '50mb'}));
-app.use(basicRateLimiter);
+app.use(redisRateLimiter);
 
 
 //Routes
