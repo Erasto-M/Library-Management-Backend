@@ -72,7 +72,6 @@ const getLibById = async({id}:{id: string})=>{
 }
 
 // get libraries paginated 
-
 const getLibrariesPaginated = async({skip, limit}: {skip: number, limit: number})=>{
 
      const paginatedList = await libraries.find({}, globalFilterKeys).skip(skip).limit(limit).sort({createdAt: -1});
@@ -88,11 +87,11 @@ const getLibrariesPaginated = async({skip, limit}: {skip: number, limit: number}
      }
      return resultToReturn;
 }
-//updateLibrary
 
+//updateLibrary
 const updateLibrary = async ({id, updateData}: {id: string, updateData: Partial<LibraryModel>})=>{
     const libId = new Types.ObjectId(id);
-    const exists = await libraries.findById(libId);
+    const exists = await libraries.findById(libId);  
    if(!exists){
     throw new Error("Library with the given id does not exist");
    }
