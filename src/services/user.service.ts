@@ -122,7 +122,7 @@ const createNewAccessToken = async ({ refreshToken }: { refreshToken: string }) 
 
 const getAllUsers = async () => {
     try {
-        const allUsers = await users.find({}, {firstName: 1, lastName: 0, role: 0}).select('-__v -isDeleted -password');
+        const allUsers = await users.find().select('-__v -isDeleted -password');
 
         if (allUsers.length > 0) {
             return allUsers;

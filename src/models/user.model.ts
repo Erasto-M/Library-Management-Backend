@@ -6,6 +6,7 @@ export interface ResetUser extends Document{
     newPassword: string,
 }
 export interface User extends Document {
+    userName: string,
     firstName?: string,
     middleName?: string,
     lastName?: string,
@@ -23,9 +24,10 @@ export interface User extends Document {
 }
 
 const userSchema = new Schema({
-    firstName: { type: String, required: true, default: '', },
+    userName: { type: String, required: true, default: '', },
+    firstName: { type: String, required: false, default: '', },
     middleName: { type: String, required: false, default: '', },
-    lastName: { type: String, required: true, default: '', },
+    lastName: { type: String, required: false, default: '', },
     email: { type: String, required: true, default: '',unique: true },
     phone: { type: String, required: true, default: '',unique: true },
     role: {type: String , required: true , default : 'student'},
