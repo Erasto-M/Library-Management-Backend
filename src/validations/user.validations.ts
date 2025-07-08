@@ -34,7 +34,7 @@ export const otpEmailValidation = joi.object({
 
 export const resetPasswordValidation = joi.object({
     email: joi.string().email().required(),
-    otp: joi.string().min(6).max(6).required(),
+    otp: joi.string().min(4).max(4).required(),
     newPassword: joi.string().min(8).max(30)
         .pattern(new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[\\W_]).+$"))
         .required()
