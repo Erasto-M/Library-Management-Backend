@@ -18,4 +18,4 @@ router.
     .get('/getAllPaginated', libraryController.getLibrariesPaginated)
     .get('/total', libraryController.getLibTotalCount);
 
-export default router;
+export default router; 

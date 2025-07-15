@@ -1,14 +1,15 @@
 import joi from "joi";
 export const userRegisterValidation = joi.object({
-    firstName: joi.string().min(2).required(),
-    lastName: joi.string().min(2).required(),
+    userName: joi.string().min(2).required(),
+    firstName: joi.string().allow("", null),
+    lastName: joi.string().allow("", null),
     middleName: joi.string().allow("", null),
     email: joi.string().email().required(),
     phone: joi
         .string()
         .pattern(/^[0-9]{10,15}$/)
-        .required(),
-    role: joi.string().valid("student", "admin", "teacher", "parent").required(),
+        .allow("", null),
+    role: joi.string().valid("student", "admin", "teacher", "parent").allow("", null),
     password: joi
         .string()
         .min(8)
