@@ -1,11 +1,11 @@
-import express from 'express';
+import express, { NextFunction } from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import connectToDatabase from './config/db';
 import v1Routes from '../src/routes/index';
-import { basicRateLimiter } from './middlewares/rate_limit'; 
-import { redisRateLimiter } from './middlewares/rate_limit';   
+import { redisRateLimiter } from './middlewares/rate_limit';  
+import errorHandler from './middlewares/error.handler';
 dotenv.config();
 
 const app = express();
@@ -15,9 +15,11 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({limit: '50mb'}));
 app.use(redisRateLimiter);
 
-
 //Routes
 app.use('/api/v1', v1Routes);
+
+// error handling for uploads
+app.use(errorHandler);
 
 app.get('/', (req, res)=>{
     const result = {
