@@ -72,7 +72,7 @@ const loginUser = async ({ user }: {
                 id: userExists._id, email: userExists.email, role: userExists.role,
             },
             SECRET as string,
-            { expiresIn: '1h' }
+            { expiresIn: '12h' }
         );
         const refreshToken = jwt.sign(
             {

@@ -41,6 +41,7 @@ const uploadSingleFile = async ({ file }: { file: UploadFile }) => {
         }
     }
 }
+
 /* Upload many files */
 const uploadMultipleFiles = async ({ files }: { files: UploadFile[] }) => {
     try {
@@ -58,6 +59,8 @@ const uploadMultipleFiles = async ({ files }: { files: UploadFile[] }) => {
     }
 }
 
+
+/* upload videos (media) */
 export default {
     uploadSingleFile,
     uploadMultipleFiles,
