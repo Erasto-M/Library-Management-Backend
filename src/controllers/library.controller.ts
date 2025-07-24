@@ -67,6 +67,7 @@ const createBulkLibraries =async (req: Request, res: Response)=>{
         }
     }
 }
+
 const getLibraryById =async(req: Request, res: Response)=>{
     try{
         const libId = req.params.libId as string;

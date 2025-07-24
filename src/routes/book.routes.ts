@@ -6,6 +6,7 @@ const router = Router();
 
 router
       .post('/new', authenticateToken , bookController.addNewBook)
-      .get('/getAll', authenticateToken, bookController.getAllBooks);
+      .get('/getAll', authenticateToken, bookController.getAllBooks)
+      .post('/:bookId', authenticateToken , bookController.getBookById);
 
 export default router;

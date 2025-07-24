@@ -49,7 +49,31 @@ const getAllBooks = async (req: Request, res: Response) => {
     }
 }
 
+/* Get book bby Id */
+const getBookById = async (req: Request, res: Response) => {
+    try {
+        const bookId = req.params.bookId as string;
+        const response = await bookService.getBookById({ bookId: bookId });
+        if (response) {
+            res.json({
+                success: true,
+                message: "Book fetched successfully",
+                data: response,
+            });
+        }
+    } catch (e) {
+        if (e instanceof Error) {
+            res.json({
+                "success": false,
+                "message": e.message,
+            },);
+        }
+    }
+}
+
+
 export default {
     addNewBook,
     getAllBooks,
+    getBookById,
 }
